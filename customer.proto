@@ -9,11 +9,11 @@ service CustomerService {
 }
 
 message GetCustomerRequest {
-  int64 id = 1;
+  uint32 id = 1;
 }
 
 message DispositionData {
-  int64 id = 1;
+  uint32 id = 1;
   string description = 2;
   string invoiceNumber = 3;
   string orderNumber = 4;
@@ -28,16 +28,16 @@ message DispositionData {
 }
 
 message CustomerData {
-  int64 id = 1;
+  uint32 id = 1;
   string name = 2;
   string email = 3;
   repeated DispositionData data = 4;
 }
 
 message GetCustomerResponse {
-  int64 status = 1;
+  uint32 status = 1;
   string error = 2;
-  int64 id = 3;
+  uint32 id = 3;
   CustomerData data = 4;
 }
 
@@ -47,7 +47,7 @@ message CreateCustomerRequest {
 }
 
 message CreateCustomerResponse {
-  int64 status = 1;
+  uint32 status = 1;
   string error = 2;
-  int64 id = 3;
+  uint32 id = 3;
 }

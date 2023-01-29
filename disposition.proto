@@ -22,7 +22,7 @@ message CreateDispositionRequest {
 }
 
 message CreateDispositionResponse {
-  int64 status = 1;
+  uint32 status = 1;
   string error = 2;
   uint32 id = 3;
 }
@@ -75,7 +75,7 @@ message GetDispositionsRequest {
 }
 
 message GetDispositionsResponse {
-  int64 status = 1;
+  uint32 status = 1;
   string error = 2;
   int32 total = 3;
   int32 page = 4;
@@ -84,7 +84,7 @@ message GetDispositionsResponse {
 }
 
 message GetDispositionResponse {
-  int64 status = 1;
+  uint32 status = 1;
   string error = 2;
   uint32 id = 3;
   DispositionData data = 4;
