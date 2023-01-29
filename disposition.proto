@@ -24,11 +24,11 @@ message CreateDispositionRequest {
 message CreateDispositionResponse {
   int64 status = 1;
   string error = 2;
-  int64 id = 3;
+  uint32 id = 3;
 }
 
 message DispositionItem {
-  int64 id = 1;
+  uint32 id = 1;
   string description = 2;
   float unitPrice = 3;
   string unit = 4;
@@ -39,13 +39,13 @@ message DispositionItem {
 }
 
 message Customer {
-  int64 id = 1;
+  uint32 id = 1;
   string name = 2;
   string email = 3;
 }
 
 message DispositionData {
-  int64 id = 1;
+  uint32 id = 1;
   string description = 2;
   string invoiceNumber = 3;
   string orderNumber = 4;
@@ -62,7 +62,7 @@ message DispositionData {
 }
 
 message GetDispositionRequest {
-  int64 id = 1;
+  uint32 id = 1;
 }
 
 message GetDispositionsRequest {
@@ -86,6 +86,6 @@ message GetDispositionsResponse {
 message GetDispositionResponse {
   int64 status = 1;
   string error = 2;
-  int64 id = 3;
+  uint32 id = 3;
   DispositionData data = 4;
 }
