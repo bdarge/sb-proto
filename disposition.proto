@@ -19,6 +19,7 @@ message CreateDispositionRequest {
   google.protobuf.Timestamp deliveryDate = 4;
   uint32 createdBy = 5;
   string requestType = 6;
+  repeated DispositionItem items = 7;
 }
 
 message CreateDispositionResponse {
