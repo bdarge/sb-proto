@@ -77,9 +77,9 @@ message GetDispositionsRequest {
 message GetDispositionsResponse {
   uint32 status = 1;
   string error = 2;
-  int32 total = 3;
-  int32 page = 4;
-  int32 limit = 5;
+  uint32 total = 3;
+  uint32 page = 4;
+  uint32 limit = 5;
   repeated DispositionData data = 6;
 }
 
