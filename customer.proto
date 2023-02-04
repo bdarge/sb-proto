@@ -1,5 +1,6 @@
 syntax = "proto3";
 package customer;
+import "disposition.proto";
 
 option go_package = "./pkg/customer";
 
@@ -12,26 +13,11 @@ message GetCustomerRequest {
   uint32 id = 1;
 }
 
-message DispositionData {
-  uint32 id = 1;
-  string description = 2;
-  string invoiceNumber = 3;
-  string orderNumber = 4;
-  string currency = 5;
-  int64 customerId = 6;
-  int64 createdBy = 7;
-  string deliveryDate = 8;
-  string createdAt = 9;
-  string updatedAt = 10;
-  string deletedAt = 11;
-  string requestType = 12;
-}
-
 message CustomerData {
   uint32 id = 1;
   string name = 2;
   string email = 3;
-  repeated DispositionData data = 4;
+  repeated disposition.DispositionData data = 4;
 }
 
 message GetCustomerResponse {
