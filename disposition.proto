@@ -4,7 +4,7 @@ package disposition;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "./pkg/disposition";
+option go_package = "./";
 
 service DispositionService {
   rpc CreateDisposition(CreateDispositionRequest) returns (CreateDispositionResponse) {}

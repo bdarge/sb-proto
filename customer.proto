@@ -1,8 +1,8 @@
 syntax = "proto3";
 package customer;
-import "disposition.proto";
+import "pkg/pb/disposition.proto";
 
-option go_package = "./pkg/customer";
+option go_package = "./";
 
 service CustomerService {
   rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
