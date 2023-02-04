@@ -2,7 +2,7 @@ syntax = "proto3";
 package customer;
 import "pkg/pb/disposition.proto";
 
-option go_package = "./";
+option go_package = "./customer";
 
 service CustomerService {
   rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
