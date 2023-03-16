@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package customer;
 
-import "pb/disposition.proto";
+import "pb/model.proto";
 
 service CustomerService {
   rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
@@ -13,18 +13,11 @@ message GetCustomerRequest {
   uint32 id = 1;
 }
 
-message CustomerData {
-  uint32 id = 1;
-  string name = 2;
-  string email = 3;
-  repeated disposition.DispositionData data = 4;
-}
-
 message GetCustomerResponse {
   uint32 status = 1;
   string error = 2;
   uint32 id = 3;
-  CustomerData data = 4;
+  model.CustomerData data = 4;
 }
 
 message CreateCustomerRequest {

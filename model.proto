@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package model;
+
+import "google/protobuf/timestamp.proto";
+
+message CustomerData {
+  uint32 id = 1;
+  string name = 2;
+  string email = 3;
+  repeated DispositionData data = 4;
+}
+
+message DispositionItem {
+  uint32 id = 1;
+  string description = 2;
+  float unitPrice = 3;
+  string unit = 4;
+  uint32 qty =5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+  google.protobuf.Timestamp deletedAt = 8;
+}
+
+message DispositionData {
+  uint32 id = 1;
+  string description = 2;
+  string invoiceNumber = 3;
+  string orderNumber = 4;
+  string currency = 5;
+  uint32 customerId = 6;
+  uint32 createdBy = 7;
+  google.protobuf.Timestamp deliveryDate = 8;
+  google.protobuf.Timestamp createdAt = 9;
+  google.protobuf.Timestamp updatedAt = 10;
+  google.protobuf.Timestamp deletedAt = 11;
+  string requestType = 12;
+  repeated DispositionItem items = 13;
+  CustomerData customer = 14;
+}

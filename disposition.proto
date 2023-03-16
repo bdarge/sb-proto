@@ -3,7 +3,7 @@ syntax = "proto3";
 package disposition;
 
 import "google/protobuf/timestamp.proto";
-import "pb/customer.proto";
+import "pb/model.proto";
 
 service DispositionService {
   rpc CreateDisposition(CreateDispositionRequest) returns (CreateDispositionResponse) {}
@@ -18,41 +18,13 @@ message CreateDispositionRequest {
   google.protobuf.Timestamp deliveryDate = 4;
   uint32 createdBy = 5;
   string requestType = 6;
-  repeated DispositionItem items = 7;
+  repeated model.DispositionItem items = 7;
 }
 
 message CreateDispositionResponse {
   uint32 status = 1;
   string error = 2;
   uint32 id = 3;
-}
-
-message DispositionItem {
-  uint32 id = 1;
-  string description = 2;
-  float unitPrice = 3;
-  string unit = 4;
-  uint32 qty =5;
-  google.protobuf.Timestamp createdAt = 6;
-  google.protobuf.Timestamp updatedAt = 7;
-  google.protobuf.Timestamp deletedAt = 8;
-}
-
-message DispositionData {
-  uint32 id = 1;
-  string description = 2;
-  string invoiceNumber = 3;
-  string orderNumber = 4;
-  string currency = 5;
-  uint32 customerId = 6;
-  uint32 createdBy = 7;
-  google.protobuf.Timestamp deliveryDate = 8;
-  google.protobuf.Timestamp createdAt = 9;
-  google.protobuf.Timestamp updatedAt = 10;
-  google.protobuf.Timestamp deletedAt = 11;
-  string requestType = 12;
-  repeated DispositionItem items = 13;
-  customer.CustomerData customer = 14;
 }
 
 message GetDispositionRequest {
@@ -74,12 +46,12 @@ message GetDispositionsResponse {
   uint32 total = 3;
   uint32 page = 4;
   uint32 limit = 5;
-  repeated DispositionData data = 6;
+  repeated model.DispositionData data = 6;
 }
 
 message GetDispositionResponse {
   uint32 status = 1;
   string error = 2;
   uint32 id = 3;
-  DispositionData data = 4;
+  model.DispositionData data = 4;
 }
