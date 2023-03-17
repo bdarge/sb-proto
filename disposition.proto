@@ -52,6 +52,5 @@ message GetDispositionsResponse {
 message GetDispositionResponse {
   uint32 status = 1;
   string error = 2;
-  uint32 id = 3;
   model.DispositionData data = 4;
 }
