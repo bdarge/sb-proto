@@ -20,6 +20,23 @@ message GetCustomerResponse {
   model.CustomerData data = 4;
 }
 
+message GetCustomersRequest {
+  string search = 1;
+  string sortProperty = 2;
+  uint32 limit = 3;
+  string sortDirection = 4;
+  uint32 page = 5;
+}
+
+message GetCustomersResponse {
+  uint32 status = 1;
+  string error = 2;
+  uint32 total = 3;
+  uint32 page = 4;
+  uint32 limit = 5;
+  repeated model.CustomerData data = 4;
+}
+
 message CreateCustomerRequest {
   string email = 1;
   string name = 2;
