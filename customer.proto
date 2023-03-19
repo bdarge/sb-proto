@@ -34,7 +34,7 @@ message GetCustomersResponse {
   uint32 total = 3;
   uint32 page = 4;
   uint32 limit = 5;
-  repeated model.CustomerData data = 4;
+  repeated model.CustomerData data = 6;
 }
 
 message CreateCustomerRequest {
