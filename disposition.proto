@@ -27,10 +27,6 @@ message CreateDispositionResponse {
   uint32 id = 3;
 }
 
-message GetDispositionRequest {
-  uint32 id = 1;
-}
-
 message GetDispositionsRequest {
   string requestType = 1;
   string search = 2;
@@ -49,8 +45,37 @@ message GetDispositionsResponse {
   repeated model.DispositionData data = 6;
 }
 
+message GetDispositionRequest {
+  uint32 id = 1;
+}
+
 message GetDispositionResponse {
   uint32 status = 1;
   string error = 2;
-  model.DispositionData data = 4;
+  model.DispositionData data = 3;
+}
+
+message DeleteDispositionRequest {
+  uint32 id = 1;
+}
+
+message DeleteDispositionResponse {
+  uint32 status = 1;
+  string error = 2;
+}
+
+message UpdateDispositionRequest {
+  uint32 id = 1;
+  string currency = 2;
+  string description = 3;
+  uint32 customerId = 4;
+  google.protobuf.Timestamp deliveryDate = 5;
+  uint32 createdBy = 6;
+  string requestType = 7;
+}
+
+message UpdateDispositionResponse {
+  uint32 status = 1;
+  string error = 2;
+  model.DispositionData data = 3;
 }

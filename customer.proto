@@ -48,3 +48,25 @@ message CreateCustomerResponse {
   string error = 2;
   uint32 id = 3;
 }
+message DeleteCustomerRequest {
+  uint32 id = 1;
+}
+
+message DeleteCustomerResponse {
+  uint32 status = 1;
+  string error = 2;
+}
+
+message UpdateCustomerRequest {
+  uint32 id = 1;
+  string email = 2;
+  string name = 3;
+}
+
+message UpdateCustomerResponse {
+  uint32 status = 1;
+  string error = 2;
+  uint32 id = 3;
+  model.CustomerData data = 4;
+}
+
