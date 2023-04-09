@@ -8,6 +8,8 @@ service CustomerService {
   rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
   rpc GetCustomer(GetCustomerRequest) returns (GetCustomerResponse) {}
   rpc GetCustomers(GetCustomersRequest) returns (GetCustomersResponse) {}
+  rpc UpdateCustomer(UpdateCustomerRequest) returns (UpdateCustomerResponse) {}
+  rpc DeleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse) {}
 }
 
 message GetCustomerRequest {

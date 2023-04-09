@@ -9,6 +9,8 @@ service DispositionService {
   rpc CreateDisposition(CreateDispositionRequest) returns (CreateDispositionResponse) {}
   rpc GetDisposition(GetDispositionRequest) returns (GetDispositionResponse) {}
   rpc GetDispositions(GetDispositionsRequest) returns (GetDispositionsResponse) {}
+  rpc UpdateDisposition(UpdateDispositionRequest) returns (UpdateDispositionResponse) {}
+  rpc DeleteDisposition(DeleteDispositionRequest) returns (DeleteDispositionResponse) {}
 }
 
 message CreateDispositionRequest {
@@ -70,8 +72,7 @@ message UpdateDispositionRequest {
   string description = 3;
   uint32 customerId = 4;
   google.protobuf.Timestamp deliveryDate = 5;
-  uint32 createdBy = 6;
-  string requestType = 7;
+  string requestType = 6;
 }
 
 message UpdateDispositionResponse {
