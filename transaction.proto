@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package transaction;
+
+import "google/protobuf/timestamp.proto";
+import "pb/model.proto";
+
+service TransactionService {
+  rpc CreateTransaction(CreateTransactionRequest) returns (CreateTransactionResponse) {}
+  rpc GetTransaction(GetTransactionRequest) returns (GetTransactionResponse) {}
+  rpc GetTransactions(GetTransactionsRequest) returns (GetTransactionsResponse) {}
+  rpc UpdateTransaction(UpdateTransactionRequest) returns (UpdateTransactionResponse) {}
+  rpc DeleteTransaction(DeleteTransactionRequest) returns (DeleteTransactionResponse) {}
+}
+
+message CreateTransactionRequest {
+  string currency = 1;
+  string description = 2;
+  uint32 customerId = 3;
+  google.protobuf.Timestamp deliveryDate = 4;
+  uint32 createdBy = 5;
+  string requestType = 6;
+  repeated model.TransactionItem items = 7;
+}
+
+message CreateTransactionResponse {
+  uint32 status = 1;
+  string error = 2;
+  uint32 id = 3;
+}
+
+message GetTransactionsRequest {
+  string requestType = 1;
+  string search = 2;
+  string sortProperty = 3;
+  uint32 limit = 4;
+  string sortDirection = 5;
+  uint32 page = 6;
+}
+
+message GetTransactionsResponse {
+  uint32 status = 1;
+  string error = 2;
+  uint32 total = 3;
+  uint32 page = 4;
+  uint32 limit = 5;
+  repeated model.TransactionData data = 6;
+}
+
+message GetTransactionRequest {
+  uint32 id = 1;
+}
+
+message GetTransactionResponse {
+  uint32 status = 1;
+  string error = 2;
+  model.TransactionData data = 3;
+}
+
+message DeleteTransactionRequest {
+  uint32 id = 1;
+}
+
+message DeleteTransactionResponse {
+  uint32 status = 1;
+  string error = 2;
+}
+
+message UpdateTransactionRequest {
+  uint32 id = 1;
+  string currency = 2;
+  string description = 3;
+  uint32 customerId = 4;
+  google.protobuf.Timestamp deliveryDate = 5;
+  string requestType = 6;
+}
+
+message UpdateTransactionResponse {
+  uint32 status = 1;
+  string error = 2;
+  model.TransactionData data = 3;
+}

@@ -13,7 +13,7 @@ message CustomerData {
   google.protobuf.Timestamp deletedAt = 6;
 }
 
-message DispositionItem {
+message TransactionItem {
   uint32 id = 1;
   string description = 2;
   float unitPrice = 3;
@@ -22,10 +22,10 @@ message DispositionItem {
   google.protobuf.Timestamp createdAt = 6;
   google.protobuf.Timestamp updatedAt = 7;
   google.protobuf.Timestamp deletedAt = 8;
-  uint32 dispositionId = 9;
+  uint32 transactionId = 9;
 }
 
-message DispositionData {
+message TransactionData {
   uint32 id = 1;
   string description = 2;
   string invoiceNumber = 3;
@@ -38,6 +38,6 @@ message DispositionData {
   google.protobuf.Timestamp updatedAt = 10;
   google.protobuf.Timestamp deletedAt = 11;
   string requestType = 12;
-  repeated DispositionItem items = 13;
+  repeated TransactionItem items = 13;
   CustomerData customer = 14;
 }
