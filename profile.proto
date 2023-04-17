@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package auth;
+
+import "google/protobuf/timestamp.proto";
+import "pb/model.proto";
+
+service ProfileService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+}
+
+
+message UserData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string username = 5;
+  string HourlyRate = 6;
+  string BusinessName = 7;
+  string Street = 8;
+  string PostalCode = 9;
+  string City = 10;
+  string Country = 11;
+  string LandLinePhone = 12;
+  string MobilePhone = 13;
+  string Vat = 14;
+  repeated Transaction transactions = 15;
+}
+
+message GetUserRequest {
+  uint32 id = 1;
+}
+
+message GetUserResponse {
+  uint32 status = 1;
+  string error = 2;
+  UserData data = 3;
+}
