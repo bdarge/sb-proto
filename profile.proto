@@ -25,7 +25,7 @@ message UserData {
   string LandLinePhone = 12;
   string MobilePhone = 13;
   string Vat = 14;
-  repeated TransactionData transactions = 15;
+  repeated model.TransactionData transactions = 15;
 }
 
 message GetUserRequest {
