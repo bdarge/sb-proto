@@ -7,6 +7,7 @@ import "pb/model.proto";
 
 service ProfileService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
 }
 
 
@@ -16,15 +17,15 @@ message UserData {
   google.protobuf.Timestamp updatedAt = 3;
   google.protobuf.Timestamp deletedAt = 4;
   string username = 5;
-  string HourlyRate = 6;
-  string BusinessName = 7;
-  string Street = 8;
-  string PostalCode = 9;
-  string City = 10;
-  string Country = 11;
-  string LandLinePhone = 12;
-  string MobilePhone = 13;
-  string Vat = 14;
+  string hourlyRate = 6;
+  string businessName = 7;
+  string street = 8;
+  string postalCode = 9;
+  string city = 10;
+  string country = 11;
+  string landLinePhone = 12;
+  string mobilePhone = 13;
+  string vat = 14;
   repeated model.TransactionData transactions = 15;
 }
 
@@ -33,6 +34,25 @@ message GetUserRequest {
 }
 
 message GetUserResponse {
+  uint32 status = 1;
+  string error = 2;
+  UserData data = 3;
+}
+
+message UpdateUserRequest {
+  uint32 id = 1;
+  string username = 2;
+  string hourlyRate = 3;
+  string businessName = 4;
+  string street = 5;
+  string postalCode = 6;
+  string city = 7;
+  string country = 8;
+  string landLinePhone = 9;
+  string mobilePhone = 10;
+}
+
+message UpdateUserResponse {
   uint32 status = 1;
   string error = 2;
   UserData data = 3;
