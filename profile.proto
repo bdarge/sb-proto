@@ -40,16 +40,14 @@ message GetUserResponse {
 }
 
 message UpdateUserRequest {
-  uint32 id = 1;
-  string username = 2;
-  string hourlyRate = 3;
-  string businessName = 4;
-  string street = 5;
-  string postalCode = 6;
-  string city = 7;
-  string country = 8;
-  string landLinePhone = 9;
-  string mobilePhone = 10;
+  string username = 1;
+  string businessName = 2;
+  string street = 3;
+  string postalCode = 4;
+  string city = 5;
+  string country = 6;
+  string landLinePhone = 7;
+  string mobilePhone = 8;
 }
 
 message UpdateUserResponse {
