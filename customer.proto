@@ -59,10 +59,14 @@ message DeleteCustomerResponse {
   string error = 2;
 }
 
-message UpdateCustomerRequest {
-  uint32 id = 1;
+message UpdateCustomerData {
   string email = 2;
   string name = 3;
+}
+
+message UpdateCustomerRequest {
+  uint32 id = 1;
+  UpdateCustomerData data = 2;
 }
 
 message UpdateCustomerResponse {
