@@ -10,6 +10,10 @@ service ProfileService {
   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
 }
 
+message RoleData {
+  uint32 id = 1;
+  string name = 2;
+}
 
 message UserData {
   uint32 id = 1;
@@ -27,6 +31,7 @@ message UserData {
   string mobilePhone = 13;
   string vat = 14;
   repeated model.TransactionData transactions = 15;
+  repeated RoleData roles = 16;
 }
 
 message GetUserRequest {
