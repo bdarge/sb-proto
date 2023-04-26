@@ -7,6 +7,7 @@ import "pb/model.proto";
 
 service ProfileService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+  rpc GetBusiness(GetBusinessRequest) returns (GetBusinessResponse) {}
   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
 }
 
@@ -18,23 +19,26 @@ message RoleData {
   string name = 5;
 }
 
+message BusinessData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string name = 5;
+  string hourlyRate = 6;
+  string vat = 7;
+  model.AddressData address = 8;
+}
+
 message UserData {
   uint32 id = 1;
   google.protobuf.Timestamp createdAt = 2;
   google.protobuf.Timestamp updatedAt = 3;
   google.protobuf.Timestamp deletedAt = 4;
-  string username = 5;
-  string hourlyRate = 6;
-  string businessName = 7;
-  string street = 8;
-  string postalCode = 9;
-  string city = 10;
-  string country = 11;
-  string landlinePhone = 12;
-  string mobilePhone = 13;
-  string vat = 14;
-  repeated model.TransactionData transactions = 15;
-  repeated RoleData roles = 16;
+  model.AddressData address = 5;
+  string username = 6;
+  repeated model.TransactionData transactions = 7;
+  repeated RoleData roles = 8;
 }
 
 message GetUserRequest {
@@ -45,6 +49,16 @@ message GetUserResponse {
   uint32 status = 1;
   string error = 2;
   UserData data = 3;
+}
+
+message GetBusinessRequest {
+  uint32 id = 1;
+}
+
+message GetBusinessResponse {
+  uint32 status = 1;
+  string error = 2;
+  BusinessData data = 3;
 }
 
 message UpdateUserData {

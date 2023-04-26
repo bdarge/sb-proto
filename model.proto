@@ -4,6 +4,22 @@ package model;
 
 import "google/protobuf/timestamp.proto";
 
+message AddressData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string street = 5;
+  string postalCode = 6;
+  string city = 7;
+  string state = 8;
+  string country = 9;
+  string landlinePhone = 10;
+  string mobilePhone = 11;
+  uint32 refId = 12;
+}
+
+
 message CustomerData {
   uint32 id = 1;
   string name = 2;
