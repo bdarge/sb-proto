@@ -12,7 +12,10 @@ service ProfileService {
 
 message RoleData {
   uint32 id = 1;
-  string name = 2;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string name = 5;
 }
 
 message UserData {
@@ -27,7 +30,7 @@ message UserData {
   string postalCode = 9;
   string city = 10;
   string country = 11;
-  string landLinePhone = 12;
+  string landlinePhone = 12;
   string mobilePhone = 13;
   string vat = 14;
   repeated model.TransactionData transactions = 15;
