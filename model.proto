@@ -16,9 +16,9 @@ message AddressData {
   string country = 9;
   string landlinePhone = 10;
   string mobilePhone = 11;
-  uint32 refId = 12;
+  uint32 userId = 12;
+  uint32 businessId = 13;
 }
-
 
 message CustomerData {
   uint32 id = 1;
