@@ -39,6 +39,7 @@ message UserData {
   string username = 6;
   repeated model.TransactionData transactions = 7;
   repeated RoleData roles = 8;
+  BusinessData business = 9;
 }
 
 message GetUserRequest {
