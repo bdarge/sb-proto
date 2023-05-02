@@ -25,8 +25,8 @@ message BusinessData {
   google.protobuf.Timestamp updatedAt = 3;
   google.protobuf.Timestamp deletedAt = 4;
   string name = 5;
-  string hourlyRate = 6;
-  string vat = 7;
+  uint32 hourlyRate = 6;
+  uint32 vat = 7;
   model.AddressData address = 8;
 }
 
@@ -39,7 +39,8 @@ message UserData {
   string username = 6;
   repeated model.TransactionData transactions = 7;
   repeated RoleData roles = 8;
-  BusinessData business = 9;
+  uint32 businessId = 9;
+  BusinessData business = 10;
 }
 
 message GetUserRequest {
