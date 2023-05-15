@@ -63,15 +63,18 @@ message GetBusinessResponse {
   BusinessData data = 3;
 }
 
+message UpdateAddress {
+  string street = 1;
+  string postalCode = 2;
+  string city = 3;
+  string country = 4;
+  string landLinePhone = 5;
+  string mobilePhone = 6;
+}
+
 message UpdateUserData {
   string username = 1;
-  string businessName = 2;
-  string street = 3;
-  string postalCode = 4;
-  string city = 5;
-  string country = 6;
-  string landLinePhone = 7;
-  string mobilePhone = 8;
+  UpdateAddress address = 2;
 }
 
 message UpdateUserRequest {
