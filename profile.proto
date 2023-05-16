@@ -2,55 +2,13 @@ syntax = "proto3";
 
 package auth;
 
-import "google/protobuf/timestamp.proto";
 import "pb/model.proto";
 
 service ProfileService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
   rpc GetBusiness(GetBusinessRequest) returns (GetBusinessResponse) {}
   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
-}
-
-message RoleData {
-  uint32 id = 1;
-  google.protobuf.Timestamp createdAt = 2;
-  google.protobuf.Timestamp updatedAt = 3;
-  google.protobuf.Timestamp deletedAt = 4;
-  string name = 5;
-}
-
-message BusinessData {
-  uint32 id = 1;
-  google.protobuf.Timestamp createdAt = 2;
-  google.protobuf.Timestamp updatedAt = 3;
-  google.protobuf.Timestamp deletedAt = 4;
-  string name = 5;
-  uint32 hourlyRate = 6;
-  uint32 vat = 7;
-  model.AddressData address = 8;
-}
-
-message UserData {
-  uint32 id = 1;
-  google.protobuf.Timestamp createdAt = 2;
-  google.protobuf.Timestamp updatedAt = 3;
-  google.protobuf.Timestamp deletedAt = 4;
-  model.AddressData address = 5;
-  string username = 6;
-  repeated model.TransactionData transactions = 7;
-  repeated RoleData roles = 8;
-  uint32 businessId = 9;
-  BusinessData business = 10;
-}
-
-message GetUserRequest {
-  uint32 id = 1;
-}
-
-message GetUserResponse {
-  uint32 status = 1;
-  string error = 2;
-  UserData data = 3;
+  rpc UpdateBusiness(UpdateBusinessRequest) returns (UpdateBusinessResponse) {}
 }
 
 message GetBusinessRequest {
@@ -60,16 +18,53 @@ message GetBusinessRequest {
 message GetBusinessResponse {
   uint32 status = 1;
   string error = 2;
-  BusinessData data = 3;
+  model.BusinessData data = 3;
+}
+
+message UpdateBusinessAddress {
+  uint32 id = 1;
+  string street = 2;
+  string postalCode = 3;
+  string city = 4;
+  string country = 5;
+  string phone = 6;
+}
+
+message UpdateBusinessData {
+  string name = 1;
+  uint32 hourlyRate = 2;
+  uint32 vat = 3;
 }
 
 message UpdateAddress {
-  string street = 1;
-  string postalCode = 2;
-  string city = 3;
-  string country = 4;
-  string landLinePhone = 5;
-  string mobilePhone = 6;
+  uint32 id = 1;
+  string street = 2;
+  string postalCode = 3;
+  string city = 4;
+  string country = 5;
+  string landline = 6;
+  string Mobile = 7;
+}
+
+message UpdateBusinessRequest {
+  uint32 id = 1;
+  UpdateBusinessData data = 2;
+}
+
+message UpdateBusinessResponse {
+  uint32 status = 1;
+  string error = 2;
+  model.BusinessData data = 3;
+}
+
+message GetUserRequest {
+  uint32 id = 1;
+}
+
+message GetUserResponse {
+  uint32 status = 1;
+  string error = 2;
+  model.UserData data = 3;
 }
 
 message UpdateUserData {
@@ -85,5 +80,5 @@ message UpdateUserRequest {
 message UpdateUserResponse {
   uint32 status = 1;
   string error = 2;
-  UserData data = 3;
+  model.UserData data = 3;
 }

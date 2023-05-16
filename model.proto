@@ -20,6 +20,52 @@ message AddressData {
   uint32 businessId = 13;
 }
 
+message BusinessAddressData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string street = 5;
+  string postalCode = 6;
+  string city = 7;
+  string state = 8;
+  string country = 9;
+  string Phone = 10;
+  uint32 businessId = 11;
+}
+
+message RoleData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string name = 5;
+}
+
+message BusinessData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string name = 5;
+  uint32 hourlyRate = 6;
+  uint32 vat = 7;
+  model.BusinessAddressData address = 8;
+}
+
+message UserData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  model.AddressData address = 5;
+  string username = 6;
+  repeated model.TransactionData transactions = 7;
+  repeated RoleData roles = 8;
+  uint32 businessId = 9;
+  BusinessData business = 10;
+}
+
 message CustomerData {
   uint32 id = 1;
   string name = 2;
