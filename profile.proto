@@ -68,8 +68,9 @@ message GetUserResponse {
 }
 
 message UpdateUserData {
-  string username = 1;
-  UpdateAddress address = 2;
+  uint32 id = 1;
+  string username = 2;
+  UpdateAddress address = 3;
 }
 
 message UpdateUserRequest {
