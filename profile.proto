@@ -27,13 +27,15 @@ message UpdateBusinessAddress {
   string postalCode = 3;
   string city = 4;
   string country = 5;
-  string phone = 6;
+  string landline = 6;
+  string mobile = 7;
 }
 
 message UpdateBusinessData {
   string name = 1;
   uint32 hourlyRate = 2;
   uint32 vat = 3;
+  UpdateBusinessAddress address = 4;
 }
 
 message UpdateAddress {

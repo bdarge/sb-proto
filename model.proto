@@ -16,8 +16,6 @@ message AddressData {
   string country = 9;
   string landline = 10;
   string mobile = 11;
-  uint32 userId = 12;
-  uint32 businessId = 13;
 }
 
 message BusinessAddressData {
@@ -30,8 +28,8 @@ message BusinessAddressData {
   string city = 7;
   string state = 8;
   string country = 9;
-  string Phone = 10;
-  uint32 businessId = 11;
+  string landline = 10;
+  string mobile = 11;
 }
 
 message RoleData {
