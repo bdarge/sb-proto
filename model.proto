@@ -14,8 +14,8 @@ message AddressData {
   string city = 7;
   string state = 8;
   string country = 9;
-  string landlinePhone = 10;
-  string mobilePhone = 11;
+  string landline = 10;
+  string mobile = 11;
   uint32 userId = 12;
   uint32 businessId = 13;
 }
