@@ -21,21 +21,16 @@ message GetBusinessResponse {
   model.BusinessData data = 3;
 }
 
-message UpdateBusinessAddress {
-  uint32 id = 1;
-  string street = 2;
-  string postalCode = 3;
-  string city = 4;
-  string country = 5;
-  string landline = 6;
-  string mobile = 7;
-}
-
 message UpdateBusinessData {
   string name = 1;
   uint32 hourlyRate = 2;
   uint32 vat = 3;
-  UpdateBusinessAddress address = 4;
+  string street = 4;
+  string postalCode = 5;
+  string city = 6;
+  string country = 7;
+  string landline = 8;
+  string mobile = 9;
 }
 
 message UpdateAddress {

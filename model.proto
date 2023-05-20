@@ -4,6 +4,15 @@ package model;
 
 import "google/protobuf/timestamp.proto";
 
+message accountData {
+  uint32 id = 1;
+  google.protobuf.Timestamp createdAt = 2;
+  google.protobuf.Timestamp updatedAt = 3;
+  google.protobuf.Timestamp deletedAt = 4;
+  string email = 5;
+  uint32 userId = 6;
+}
+
 message AddressData {
   uint32 id = 1;
   google.protobuf.Timestamp createdAt = 2;
@@ -16,9 +25,10 @@ message AddressData {
   string country = 9;
   string landline = 10;
   string mobile = 11;
+  uint32 userId = 12;
 }
 
-message BusinessAddressData {
+message CustomerAddressData {
   uint32 id = 1;
   google.protobuf.Timestamp createdAt = 2;
   google.protobuf.Timestamp updatedAt = 3;
@@ -48,7 +58,13 @@ message BusinessData {
   string name = 5;
   uint32 hourlyRate = 6;
   uint32 vat = 7;
-  model.BusinessAddressData address = 8;
+  string street = 8;
+  string postalCode = 9;
+  string city = 10;
+  string state = 11;
+  string country = 12;
+  string landline = 13;
+  string mobile = 14;
 }
 
 message UserData {
@@ -56,12 +72,12 @@ message UserData {
   google.protobuf.Timestamp createdAt = 2;
   google.protobuf.Timestamp updatedAt = 3;
   google.protobuf.Timestamp deletedAt = 4;
-  model.AddressData address = 5;
+  AddressData address = 5;
   string username = 6;
-  repeated model.TransactionData transactions = 7;
+  repeated TransactionData transactions = 7;
   repeated RoleData roles = 8;
   uint32 businessId = 9;
-  BusinessData business = 10;
+  accountData account = 10;
 }
 
 message CustomerData {
@@ -71,6 +87,7 @@ message CustomerData {
   google.protobuf.Timestamp createdAt = 4;
   google.protobuf.Timestamp updatedAt = 5;
   google.protobuf.Timestamp deletedAt = 6;
+  CustomerAddressData address = 7;
 }
 
 message TransactionItem {
