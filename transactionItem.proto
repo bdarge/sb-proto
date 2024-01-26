@@ -5,6 +5,7 @@ package transaction;
 import "pb/model.proto";
 
 service TransactionItemService {
+  rpc CreateTransactionItem(CreateTransactionItemRequest) returns (CreateTransactionItemResponse) {}
   rpc GetTransactionItem(GetTransactionItemRequest) returns (GetTransactionItemResponse) {}
   rpc GetTransactionItems(GetTransactionItemsRequest) returns (GetTransactionItemsResponse) {}
   rpc UpdateTransactionItem(UpdateTransactionItemRequest) returns (UpdateTransactionItemResponse) {}
@@ -12,6 +13,26 @@ service TransactionItemService {
 }
 
 // TransactionItem
+
+message UpdateTransactionItem {
+  string description = 1;
+  float unitPrice = 2;
+  string unit = 3;
+  uint32 qty = 4;
+}
+
+message CreateTransactionItemRequest {
+  string description = 1;
+  float unitPrice = 2;
+  string unit = 3;
+  uint32 qty = 4;
+}
+
+message CreateTransactionItemResponse {
+  uint32 status = 1;
+  string error = 2;
+  uint32 id = 3;
+}
 
 message GetTransactionItemRequest {
   uint32 id = 1;
@@ -38,14 +59,6 @@ message GetTransactionItemsResponse {
   uint32 page = 4;
   uint32 limit = 5;
   repeated model.TransactionItem data = 6;
-}
-
-
-message UpdateTransactionItem {
-  string description = 1;
-  float unitPrice = 2;
-  string unit = 3;
-  uint32 qty = 4;
 }
 
 message UpdateTransactionItemRequest {
