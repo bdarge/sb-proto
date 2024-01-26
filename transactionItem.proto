@@ -26,6 +26,7 @@ message CreateTransactionItemRequest {
   float unitPrice = 2;
   string unit = 3;
   uint32 qty = 4;
+  uint32 transactionId = 5;
 }
 
 message CreateTransactionItemResponse {
