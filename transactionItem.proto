@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package transaction;
 
-import "google/protobuf/timestamp.proto";
 import "pb/model.proto";
 
 service TransactionItemService {
