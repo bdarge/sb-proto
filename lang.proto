@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package lang;
+
+import "pb/model.proto";
+
+service LangService {
+  rpc getLang(LangRequest) returns (LangResponse) {}
+}
+
+message LangRequest {
+}
+
+message LangResponse {
+  repeated model.LangData data = 1;
+}

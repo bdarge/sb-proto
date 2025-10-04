@@ -118,3 +118,9 @@ message TransactionData {
   repeated TransactionItem items = 13;
   CustomerData customer = 14;
 }
+
+message LangData {
+  uint32 id = 1;
+  string language = 2;
+  string currency = 3;
+}
