@@ -1,2 +1,2 @@
 # sb-proto
-sb proto repo
+sb proto definitions
