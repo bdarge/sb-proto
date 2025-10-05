@@ -5,13 +5,13 @@ package lang;
 import "pb/model.proto";
 
 service LangService {
-  rpc getLang(LangRequest) returns (LangResponse) {}
+  rpc getLang(LangGetRequest) returns (LangGetResponse) {}
 }
 
-message LangRequest {
+message LangGetRequest {
 }
 
-message LangResponse {
+message LangGetResponse {
   uint32 status = 1;
   string error = 2;
   repeated model.LangData data = 3;
