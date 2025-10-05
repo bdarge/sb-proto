@@ -12,5 +12,7 @@ message LangRequest {
 }
 
 message LangResponse {
-  repeated model.LangData data = 1;
+  uint32 status = 1;
+  string error = 2;
+  repeated model.LangData data = 3;
 }
